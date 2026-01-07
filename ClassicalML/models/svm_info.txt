@@ -1,0 +1,50 @@
+============================================================
+Model Information
+============================================================
+
+Model Name: SVM with RBF Kernel
+Timestamp: 2026-01-06 21:07:52
+
+Hyperparameters:
+  - kernel: rbf
+  - C: 1
+  - gamma: scale
+  - pca_components: 30
+  - scaler: StandardScaler
+
+Dataset Information:
+  - total_samples: 9784
+  - num_features: 122
+  - train_samples: 7338
+  - test_samples: 2446
+  - test_size: 0.25
+
+Performance Metrics:
+  - Accuracy: 0.9665
+
+Confusion Matrix:
+[[314   0   0   2   0   0   0   0]
+ [  0 300   0   0   0   0   0   0]
+ [  0   0 302   0   0   0   0   0]
+ [  4   0   0 275   0   0   0   0]
+ [  0   0   0   0 264   0   7  25]
+ [  1   0   0   0   1 312   1   0]
+ [  0   1   0   0   3   4 327   1]
+ [  0   0   0   0  30   0   2 270]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           1       0.98      0.99      0.99       316
+           2       1.00      1.00      1.00       300
+           3       1.00      1.00      1.00       302
+           4       0.99      0.99      0.99       279
+           5       0.89      0.89      0.89       296
+           6       0.99      0.99      0.99       315
+           7       0.97      0.97      0.97       336
+           8       0.91      0.89      0.90       302
+
+    accuracy                           0.97      2446
+   macro avg       0.97      0.97      0.97      2446
+weighted avg       0.97      0.97      0.97      2446
+
