@@ -1,0 +1,207 @@
+import json
+
+# create empty hierachical file structure
+dataset = {
+    "dataset_info": {
+        "name": "Badminton_Stroke_Dataset",
+        "version": "v2.0",
+        "created": "2023",
+        "total_samples": 9784,
+        "subjects": 5,
+        "stroke_types": ["Clear_fake", "Slice_fake", "Drive_fake", "Smash_fake", "Clear_real", "Slice_real", "Drive_real", "Smash_real"],
+        "labels": {
+            "Clear_fake": 1,
+            "Slice_fake": 2,
+            "Drive_fake": 3,
+            "Smash_fake": 4,
+            "Clear_real": 5,
+            "Slice_real": 6,
+            "Drive_real": 7,
+            "Smash_real": 8
+        },
+        "stroke_distribution": {
+            "Clear_fake": 0,
+            "Slice_fake": 0,
+            "Drive_fake": 0,
+            "Smash_fake": 0,
+            "Clear_real": 0,
+            "Slice_real": 0,
+            "Drive_real": 0,
+            "Smash_real": 0
+        }
+    },
+    "metadata": {
+        "sensor": "MPU6050",
+        "sampling_rate": 100,
+        "window_size": 200,
+        "sensor_placement": "Racket handle",
+        "units": {
+            "Accelerometer": "m/s^2",
+            "Gyroscope": "deg/s"
+        },
+        "preprocessing": {
+            "filter": "Digital LPF",
+            "cutoff_frequency": "260 Hz"
+        }
+    },
+    "samples": [
+        {
+            "sample_id": "",
+            "stroke_type": "",
+            "label": 0,
+            "IMU_data_sequences": {
+                "Ax": [],
+                "Ay": [],
+                "Az": [],
+                "Gx": [],
+                "Gy": [],
+                "Gz": []
+            },
+            "extracted_features": {
+                "max_Ax": 0.0,
+                "max_Ay": 0.0,
+                "max_Az": 0.0,
+                "max_Gx": 0.0,
+                "max_Gy": 0.0,
+                "max_Gz": 0.0,
+                
+                "min_Ax": 0.0,
+                "min_Ay": 0.0,
+                "min_Az": 0.0,
+                "min_Gx": 0.0,
+                "min_Gy": 0.0,
+                "min_Gz": 0.0,
+                
+                "mean_Ax": 0.0,
+                "mean_Ay": 0.0,
+                "mean_Az": 0.0,
+                "mean_Gx": 0.0,
+                "mean_Gy": 0.0,
+                "mean_Gz": 0.0,
+                
+                "rms_Ax": 0.0,
+                "rms_Ay": 0.0,
+                "rms_Az": 0.0,
+                "rms_Gx": 0.0,
+                "rms_Gy": 0.0,
+                "rms_Gz": 0.0,
+                
+                "mad_Ax": 0.0,
+                "mad_Ay": 0.0,
+                "mad_Az": 0.0,
+                "mad_Gx": 0.0,
+                "mad_Gy": 0.0,
+                "mad_Gz": 0.0,
+                
+                "median_Ax": 0.0,
+                "median_Ay": 0.0,
+                "median_Az": 0.0,
+                "median_Gx": 0.0,
+                "median_Gy": 0.0,
+                "median_Gz": 0.0,
+                
+                "std_Ax": 0.0,
+                "std_Ay": 0.0,
+                "std_Az": 0.0,
+                "std_Gx": 0.0,
+                "std_Gy": 0.0,
+                "std_Gz": 0.0,
+                
+                "var_Ax": 0.0,
+                "var_Ay": 0.0,
+                "var_Az": 0.0,
+                "var_Gx": 0.0,
+                "var_Gy": 0.0,
+                "var_Gz": 0.0,
+                
+                "cov_AxAy": 0.0,
+                "cov_AxAz": 0.0,
+                "cov_AyAz": 0.0,
+                "cov_AxGx": 0.0,
+                "cov_AxGy": 0.0,
+                "cov_AxGz": 0.0,
+                "cov_GxGy": 0.0,
+                "cov_GxGz": 0.0,
+                "cov_GyGz": 0.0,
+                "cov_AyGx": 0.0,
+                "cov_AyGy": 0.0,
+                "cov_AyGz": 0.0,
+                "cov_AzGx": 0.0,
+                "cov_AzGy": 0.0,
+                "cov_AzGz": 0.0,
+                
+                "cor_AxAy": 0.0,
+                "cor_AxAz": 0.0,
+                "cor_AyAz": 0.0,
+                "cor_AxGx": 0.0,
+                "cor_AxGy": 0.0,
+                "cor_AxGz": 0.0,
+                "cor_GxGy": 0.0,
+                "cor_GxGz": 0.0,
+                "cor_GyGz": 0.0,
+                "cor_AyGx": 0.0,
+                "cor_AyGy": 0.0,
+                "cor_AyGz": 0.0,
+                "cor_AzGx": 0.0,
+                "cor_AzGy": 0.0,
+                "cor_AzGz": 0.0,
+                
+                "skew_Ax": 0.0,
+                "skew_Ay": 0.0,
+                "skew_Az": 0.0,
+                "skew_Gx": 0.0,
+                "skew_Gy": 0.0,
+                "skew_Gz": 0.0,
+                
+                "kur_Ax": 0.0,
+                "kur_Ay": 0.0,
+                "kur_Az": 0.0,
+                "kur_Gx": 0.0,
+                "kur_Gy": 0.0,
+                "kur_Gz": 0.0,
+                
+                "sma_Ax": 0.0,
+                "sma_Ay": 0.0,
+                "sma_Az": 0.0,
+                "sma_Gx": 0.0,
+                "sma_Gy": 0.0,
+                "sma_Gz": 0.0,
+                
+                "mi_Acc": 0.0,
+                "mi_G": 0.0,
+                
+                "cf_Ax": 0.0,
+                "cf_Ay": 0.0,
+                "cf_Az": 0.0,
+                "cf_Gx": 0.0,
+                "cf_Gy": 0.0,
+                "cf_Gz": 0.0,
+                
+                "ir_Ax": 0.0,
+                "ir_Ay": 0.0,
+                "ir_Az": 0.0,
+                "ir_Gx": 0.0,
+                "ir_Gy": 0.0,
+                "ir_Gz": 0.0,
+                
+                "energy_Ax": 0.0,
+                "energy_Ay": 0.0,
+                "energy_Az": 0.0,
+                "energy_Gx": 0.0,
+                "energy_Gy": 0.0,
+                "energy_Gz": 0.0,
+                
+                "entropy_Ax": 0.0,
+                "entropy_Ay": 0.0,
+                "entropy_Az": 0.0,
+                "entropy_Gx": 0.0,
+                "entropy_Gy": 0.0,
+                "entropy_Gz": 0.0
+            }
+        }        
+    ]
+}
+
+# save to json file
+with open('badminton_stroke_dataset.json', 'w') as f:
+    json.dump(dataset, f, indent=2)
