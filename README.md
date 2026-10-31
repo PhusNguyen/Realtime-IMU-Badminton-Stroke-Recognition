@@ -3,179 +3,123 @@
 A wearable IMU device was developed to recognize badminton strokes, both with and without shuttle contact. A dataset was created from recordings of five badminton players with varying skill levels and playing styles. For power efficiency, data is transmitted to a server via Wi-Fi for processing. Various classical machine learning techniques and deep learning architectures were investigated to identify the most appropriate algorithm for this application. The results demonstrate that this approach offers a promising foundation for developing fast, simple, and accurate algorithms for sports science studies.
 
 ## 📊 Dataset Format
-```json
-{
-  "dataset_info": {
-    "name": "Badminton_Stroke_Dataset",
-    "version": "v2.0",
-    "created": "2023",
-    "total_samples": 9784,
-    "subjects": 5,
-    "stroke_types": [
-      "Clear_fake",
-      "Slice_fake",
-      "Drive_fake",
-      "Smash_fake",
-      "Clear_real",
-      "Slice_real",
-      "Drive_real",
-      "Smash_real"
-    ]
-  },
-  "metadata": {
-    "sensor": "MPU6050",
-    "sampling_rate": 100,
-    "window_size": 100,
-    "sensor_placement": "Racket handle",
-    "units": {
-      "Accelerometer": "m/s^2",
-      "Gyroscope": "deg/s"
-    },
-    "preprocessing": {
-      "filter": "Digital LPF",
-      "cutoff_frequency": "260 Hz"
-    }
-  },
-  "samples": [
-    {
-      "sample_id": "",
-      "stroke_type": "",
-      "label": 0,
-      "IMU_data_sequences": {
-        "AccX": [],
-        "AccY": [],
-        "AccZ": [],
-        "GyX": [],
-        "GyY": [],
-        "GyZ": []
-      },
-      "extracted_features": {
-        "max_Ax": 0.0,
-        "max_Ay": 0.0,
-        "max_Az": 0.0,
-        "max_Gx": 0.0,
-        "max_Gy": 0.0,
-        "max_Gz": 0.0,
-        "min_Ax": 0.0,
-        "min_Ay": 0.0,
-        "min_Az": 0.0,
-        "min_Gx": 0.0,
-        "min_Gy": 0.0,
-        "min_Gz": 0.0,
-        "mean_Ax": 0.0,
-        "mean_Ay": 0.0,
-        "mean_Az": 0.0,
-        "mean_Gx": 0.0,
-        "mean_Gy": 0.0,
-        "mean_Gz": 0.0,
-        "rms_Ax": 0.0,
-        "rms_Ay": 0.0,
-        "rms_Az": 0.0,
-        "rms_Gx": 0.0,
-        "rms_Gy": 0.0,
-        "rms_Gz": 0.0,
-        "mad_Ax": 0.0,
-        "mad_Ay": 0.0,
-        "mad_Az": 0.0,
-        "mad_Gx": 0.0,
-        "mad_Gy": 0.0,
-        "mad_Gz": 0.0,
-        "median_Ax": 0.0,
-        "median_Ay": 0.0,
-        "median_Az": 0.0,
-        "median_Gx": 0.0,
-        "median_Gy": 0.0,
-        "median_Gz": 0.0,
-        "std_Ax": 0.0,
-        "std_Ay": 0.0,
-        "std_Az": 0.0,
-        "std_Gx": 0.0,
-        "std_Gy": 0.0,
-        "std_Gz": 0.0,
-        "var_Ax": 0.0,
-        "var_Ay": 0.0,
-        "var_Az": 0.0,
-        "var_Gx": 0.0,
-        "var_Gy": 0.0,
-        "var_Gz": 0.0,
-        "cov_AxAy": 0.0,
-        "cov_AxAz": 0.0,
-        "cov_AyAz": 0.0,
-        "cov_AxGx": 0.0,
-        "cov_AxGy": 0.0,
-        "cov_AxGz": 0.0,
-        "cov_GxGy": 0.0,
-        "cov_GxGz": 0.0,
-        "cov_GyGz": 0.0,
-        "cov_AyGx": 0.0,
-        "cov_AyGy": 0.0,
-        "cov_AyGz": 0.0,
-        "cov_AzGx": 0.0,
-        "cov_AzGy": 0.0,
-        "cov_AzGz": 0.0,
-        "cor_AxAy": 0.0,
-        "cor_AxAz": 0.0,
-        "cor_AyAz": 0.0,
-        "cor_AxGx": 0.0,
-        "cor_AxGy": 0.0,
-        "cor_AxGz": 0.0,
-        "cor_GxGy": 0.0,
-        "cor_GxGz": 0.0,
-        "cor_GyGz": 0.0,
-        "cor_AyGx": 0.0,
-        "cor_AyGy": 0.0,
-        "cor_AyGz": 0.0,
-        "cor_AzGx": 0.0,
-        "cor_AzGy": 0.0,
-        "cor_AzGz": 0.0,
-        "skew_Ax": 0.0,
-        "skew_Ay": 0.0,
-        "skew_Az": 0.0,
-        "skew_Gx": 0.0,
-        "skew_Gy": 0.0,
-        "skew_Gz": 0.0,
-        "kur_Ax": 0.0,
-        "kur_Ay": 0.0,
-        "kur_Az": 0.0,
-        "kur_Gx": 0.0,
-        "kur_Gy": 0.0,
-        "kur_Gz": 0.0,
-        "sma_Ax": 0.0,
-        "sma_Ay": 0.0,
-        "sma_Az": 0.0,
-        "sma_Gx": 0.0,
-        "sma_Gy": 0.0,
-        "sma_Gz": 0.0,
-        "mi_Acc": 0.0,
-        "mi_G": 0.0,
-        "cf_Ax": 0.0,
-        "cf_Ay": 0.0,
-        "cf_Az": 0.0,
-        "cf_Gx": 0.0,
-        "cf_Gy": 0.0,
-        "cf_Gz": 0.0,
-        "ir_Ax": 0.0,
-        "ir_Ay": 0.0,
-        "ir_Az": 0.0,
-        "ir_Gx": 0.0,
-        "ir_Gy": 0.0,
-        "ir_Gz": 0.0,
-        "energy_Ax": 0.0,
-        "energy_Ay": 0.0,
-        "energy_Az": 0.0,
-        "energy_Gx": 0.0,
-        "energy_Gy": 0.0,
-        "energy_Gz": 0.0,
-        "entropy_Ax": 0.0,
-        "entropy_Ay": 0.0,
-        "entropy_Az": 0.0,
-        "entropy_Gx": 0.0,
-        "entropy_Gy": 0.0,
-        "entropy_Gz": 0.0
-      }
-    }
-  ]
-}
+
+### Dataset overview
+
+| Property | Value |
+| --- | --- |
+| Name | `Badminton_Stroke_Dataset` |
+| Version | v2.0 |
+| Created | 2023 |
+| Total samples | 9,784 |
+| Subjects | 5 badminton players |
+| Stroke types | Clear, Slice, Drive, and Smash |
+| Contact categories | Real and fake shuttle contact |
+
+### Sensor and preprocessing
+
+| Property | Value |
+| --- | --- |
+| Sensor | MPU6050 |
+| Sensor placement | Racket handle |
+| Sampling rate | 100 Hz |
+| Window size | 100 samples |
+| Accelerometer units | m/s² |
+| Gyroscope units | deg/s |
+| Filter | Digital low-pass filter |
+| Cutoff frequency | 260 Hz |
+
+### Sample structure
+
+| Field | Description |
+| --- | --- |
+| `sample_id` | Unique identifier for the sample |
+| `stroke_type` | Stroke and contact category, such as `Clear_real` or `Smash_fake` |
+| `label` | Numeric class label |
+| IMU data sequences | Six 100-sample sequences: `AccX`, `AccY`, `AccZ`, `GyX`, `GyY`, `GyZ` |
+| Extracted features | Statistical, correlation, frequency, and information-theoretic features derived from the IMU sequences |
+
+### Extracted feature groups
+
+| Feature group | Included measures |
+| --- | --- |
+| Statistical | Maximum, minimum, mean, RMS, MAD, median, standard deviation, variance, skewness, and kurtosis |
+| Cross-axis | Covariance and correlation between accelerometer and gyroscope axes |
+| Signal characteristics | Signal magnitude area, mutual information, crest factor, impulse ratio, energy, and entropy |
+
+## 📈 Model Results
+
+All models were evaluated using the same 9,784-sample dataset split: 7,338 training samples and 2,446 test samples (25% test size). The classical machine learning models use 122 extracted features, while the deep learning model uses six raw IMU channels.
+
+### Classical machine learning
+
+| Model | Main configuration | Test accuracy |
+| --- | --- | ---: |
+| KNN | 5 neighbors, uniform weights, Euclidean distance, StandardScaler, 30 PCA components | 95.71% |
+| Random Forest | 100 estimators, Gini criterion, StandardScaler, 30 PCA components | 94.89% |
+| SVM | RBF kernel, `C=1`, `gamma=scale`, StandardScaler, 30 PCA components | **96.65%** |
+
+### Deep learning
+
+| Model | Main configuration | Test accuracy |
+| --- | --- | ---: |
+| StrokeClassifier | Two convolutional layers, batch normalization, dropout, two fully connected layers, 805,592 parameters | **98.00%** |
+
+The deep learning model achieved the highest reported test accuracy, followed by the SVM. The deep learning training run stopped early at epoch 73 and reached 98% validation accuracy, with a 1.00 training accuracy.
+
+### Accuracy comparison
+
+```mermaid
+xychart-beta
+    title "Model Accuracy Comparison"
+    x-axis ["KNN", "Random Forest", "SVM", "Deep Learning"]
+    y-axis "Accuracy (%)" 0 --> 100
+    bar [95.71, 94.89, 96.65, 98.00]
 ```
+
+### Deep learning confusion matrices
+
+The following confusion matrices use class IDs `0` through `7`. Rows represent the actual class, and columns represent the predicted class.
+
+#### Training data
+
+| Actual \ Predicted | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 0 | 880 | 0 | 0 | 2 | 0 | 0 | 0 | 0 |
+| 1 | 0 | 867 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 2 | 0 | 0 | 896 | 0 | 0 | 0 | 0 | 0 |
+| 3 | 0 | 0 | 0 | 873 | 0 | 0 | 0 | 0 |
+| 4 | 0 | 0 | 0 | 0 | 888 | 0 | 0 | 0 |
+| 5 | 0 | 0 | 0 | 0 | 0 | 976 | 0 | 0 |
+| 6 | 0 | 0 | 0 | 0 | 0 | 0 | 995 | 0 |
+| 7 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 961 |
+
+#### Validation data
+
+| Actual \ Predicted | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 0 | 282 | 0 | 0 | 3 | 0 | 0 | 0 | 0 |
+| 1 | 0 | 295 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 2 | 0 | 0 | 292 | 0 | 0 | 0 | 1 | 0 |
+| 3 | 0 | 0 | 0 | 298 | 0 | 0 | 0 | 0 |
+| 4 | 0 | 0 | 0 | 0 | 283 | 0 | 3 | 17 |
+| 5 | 0 | 0 | 1 | 0 | 0 | 337 | 2 | 1 |
+| 6 | 0 | 0 | 3 | 0 | 1 | 1 | 302 | 2 |
+| 7 | 0 | 0 | 0 | 0 | 13 | 0 | 2 | 307 |
+
+### Best classical ML confusion matrix
+
+The SVM achieved the highest classical machine learning accuracy at 96.65%. The following confusion matrix shows its performance on the test data.
+
+| Actual \ Predicted | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1 | 314 | 0 | 0 | 2 | 0 | 0 | 0 | 0 |
+| 2 | 0 | 300 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 3 | 0 | 0 | 302 | 0 | 0 | 0 | 0 | 0 |
+| 4 | 4 | 0 | 0 | 275 | 0 | 0 | 0 | 0 |
+| 5 | 0 | 0 | 0 | 0 | 264 | 0 | 7 | 25 |
+| 6 | 1 | 0 | 0 | 0 | 1 | 312 | 1 | 0 |
+| 7 | 0 | 1 | 0 | 0 | 3 | 4 | 327 | 1 |
+| 8 | 0 | 0 | 0 | 0 | 30 | 0 | 2 | 270 |
 
 **Related Project**: [IMU-Badminton-Data-Collection-System](https://github.com/PhusNguyen/IMU-Badminton-Data-Collection-System)
