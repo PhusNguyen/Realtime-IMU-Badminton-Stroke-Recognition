@@ -20,18 +20,37 @@ This repository accompanies my B.Eng. thesis, *Classification of Badminton Strok
 
 ```
 .
-├── dataset/          # Labeled stroke dataset (JSON)
-├── ClassicalML/      # Feature extraction, scaling, PCA, RF / KNN / SVM
-│   └── models/
-│       └── svm_model.pkl
-├── DeepLearning/     # CNN architectures and training
-│   └── models/
-│       └── dl_optimize.pth
+├── ClassicalML/
+│   ├── models/
+│   │   ├── knn_info.txt
+│   │   ├── knn_model.pkl
+│   │   ├── rf_info.txt
+│   │   ├── rf_model.pkl
+│   │   ├── svm_info.txt
+│   │   └── svm_model.pkl
+│   └── training/
+│       ├── KNN_training.py
+│       ├── RF_training.py
+│       └── SVM_training.py
+├── DeepLearning/
+│   ├── models/
+│   │   ├── dl_optimize_info.txt
+│   │   └── dl_optimize.pth
+│   └── training/
+│       └── DL_training.py
+├── dataset/
+│   ├── badminton_stroke_dataset.json
+│   ├── dataset_structure.json
+│   ├── file_structure.py
+│   └── merge_data.py
 ├── docs/
 │   ├── Thesis.pdf
 │   └── images/
-├── realtime_classicalML.py   # Live inference with the SVM
-├── realtime_DL.py            # Live inference with the CNN
+│       └── segmentation.png
+├── main/
+│   ├── realtime_DL.py
+│   └── realtime_classicalML.py
+├── LICENSE
 └── README.md
 ```
 
@@ -86,6 +105,10 @@ Each player performed each stroke 100 times in a row before switching.
 The data is split 60% training, 20% validation, and 20% testing.
 
 **Format.** Each sample in `dataset/` contains a `sample_id`, a `stroke_type` (for example `Smash_real`), a numeric `label`, six 100-sample IMU sequences (`AccX`, `AccY`, `AccZ`, `GyX`, `GyY`, `GyZ`), and the 122 precomputed features.
+
+<p align="center">
+  <img src="docs/images/stroke_visualization.png" alt="Windows centered on detected stroke peaks" width="650">
+</p>
 
 ---
 
